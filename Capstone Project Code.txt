@@ -1,0 +1,525 @@
+
+library(ggmap)
+register_google(key = "YOUR_API_KEY")
+has_goog_key()
+fileToLoad <- file.choose(new = TRUE)
+origAddress <- read.csv(fileToLoad, stringsAsFactors = FALSE)
+
+
+for(i in 1:nrow(origAddress))
+{
+  tryCatch({
+
+result <- geocode(origAddress$Addresss[i], output = "latlona", source = "google")
+origAddress$lon[i] <- as.numeric(result[1])
+origAddress$lat[i] <- as.numeric(result[2])
+origAddress$geoAddress[i] <- as.character(result[3])
+ 
+}, 
+
+error=function(e){
+message("ERROR", result)
+print(e)
+}
+)
+}
+
+> write.csv(origAddress, "geocodedfinal.csv", row.names=FALSE)
+> install.packages("rgdal")
+WARNING: Rtools is required to build R packages but is not currently installed. Please download and install the appropriate version of Rtools before proceeding:
+
+https://cran.rstudio.com/bin/windows/Rtools/
+Installing package into ‘C:/Users/hamza/OneDrive/Documents/R/win-library/3.5’
+(as ‘lib’ is unspecified)
+also installing the dependency ‘sp’
+
+trying URL 'https://cran.rstudio.com/bin/windows/contrib/3.5/sp_1.3-2.zip'
+Content type 'application/zip' length 1869918 bytes (1.8 MB)
+downloaded 1.8 MB
+
+trying URL 'https://cran.rstudio.com/bin/windows/contrib/3.5/rgdal_1.4-7.zip'
+Content type 'application/zip' length 32973395 bytes (31.4 MB)
+downloaded 31.4 MB
+
+package ‘sp’ successfully unpacked and MD5 sums checked
+package ‘rgdal’ successfully unpacked and MD5 sums checked
+
+The downloaded binary packages are in
+	C:\Users\hamza\AppData\Local\Temp\RtmpIXIe0I\downloaded_packages
+> library(rgdal)
+Loading required package: sp
+rgdal: version: 1.4-7, (SVN revision 845)
+ Geospatial Data Abstraction Library extensions to R successfully loaded
+ Loaded GDAL runtime: GDAL 2.2.3, released 2017/11/20
+ Path to GDAL shared files: C:/Users/hamza/OneDrive/Documents/R/win-library/3.5/rgdal/gdal
+ GDAL binary built with GEOS: TRUE 
+ Loaded PROJ.4 runtime: Rel. 4.9.3, 15 August 2016, [PJ_VERSION: 493]
+ Path to PROJ.4 shared files: C:/Users/hamza/OneDrive/Documents/R/win-library/3.5/rgdal/proj
+ Linking to sp version: 1.3-2 
+Warning messages:
+1: package ‘rgdal’ was built under R version 3.5.3 
+2: package ‘sp’ was built under R version 3.5.3 
+> Toronto<-readOGR(dsn = "TRSHPFILE", layer = "VOTING_SUBDIVISION_2018_WGS84")
+OGR data source with driver: ESRI Shapefile 
+Source: "C:\Users\hamza\OneDrive\Documents\Capstone Project\Cap Project\TRSHPFILE", layer: "VOTING_SUBDIVISION_2018_WGS84"
+with 1181 features
+It has 5 fields
+Integer64 fields read as strings:  AREA_ID 
+> plot(Toronto)
+> TTCBus <- read.csv(fileToLoad, stringsAsFactors = FALSE)
+> 
+> fileToLoad <- file.choose(new = TRUE)
+> TTCBus <- read.csv(fileToLoad, stringsAsFactors = FALSE)
+> 
+> TTCBus
+   ID Report.Date Route        Time    Day
+1   1  2018-01-01   165 12:17:00 AM Monday
+2   2  2018-01-01   706 12:20:00 AM Monday
+3   3  2018-01-01    28 12:30:00 AM Monday
+4   4  2018-01-01    12 12:55:00 AM Monday
+5   5  2018-01-01    72 12:55:00 AM Monday
+6   6  2018-01-01    84  1:10:00 AM Monday
+7   7  2018-01-01    84  1:13:00 AM Monday
+8   8  2018-01-01    97  1:15:00 AM Monday
+9   9  2018-01-01    96  1:18:00 AM Monday
+10 10  2018-01-01    32  1:25:00 AM Monday
+11 11  2018-01-01   121  1:34:00 AM Monday
+12 12  2018-01-01   133  1:43:00 AM Monday
+13 13  2018-01-01    28  1:45:00 AM Monday
+14 14  2018-01-01    39  1:45:00 AM Monday
+15 15  2018-01-01   120  1:58:00 AM Monday
+16 16  2018-01-01    28  2:00:00 AM Monday
+17 17  2018-01-01    24  2:18:00 AM Monday
+18 18  2018-01-01    42  2:24:00 AM Monday
+19 19  2018-01-01    52  2:25:00 AM Monday
+20 20  2018-01-01    88  2:30:00 AM Monday
+21 21  2018-01-01   191  2:34:00 AM Monday
+22 22  2018-01-01    20  3:05:00 AM Monday
+23 23  2018-01-01   300  3:08:00 AM Monday
+24 24  2018-01-01    89  3:32:00 AM Monday
+25 25  2018-01-01   300  3:39:00 AM Monday
+26 26  2018-01-01   320  4:02:00 AM Monday
+27 27  2018-01-01   300  4:15:00 AM Monday
+28 28  2018-01-01   320  4:34:00 AM Monday
+29 29  2018-01-01   300  4:36:00 AM Monday
+30 30  2018-01-01   320  4:40:00 AM Monday
+31 31  2018-01-01   324  4:43:00 AM Monday
+32 32  2018-01-01   320  4:43:00 AM Monday
+33 33  2018-01-01   334  4:44:00 AM Monday
+34 34  2018-01-01   325  4:54:00 AM Monday
+35 35  2018-01-01   334  5:00:00 AM Monday
+36 36  2018-01-01    56  6:00:00 AM Monday
+37 37  2018-01-01   307  6:12:00 AM Monday
+38 38  2018-01-01   133  6:25:00 AM Monday
+39 39  2018-01-01    36  6:37:00 AM Monday
+40 40  2018-01-01    41  6:38:00 AM Monday
+41 41  2018-01-01    37  6:41:00 AM Monday
+42 42  2018-01-01   300  6:48:00 AM Monday
+43 43  2018-01-01    89  6:55:00 AM Monday
+44 44  2018-01-01    52  7:02:00 AM Monday
+45 45  2018-01-01     9  7:12:00 AM Monday
+46 46  2018-01-01    29  7:20:00 AM Monday
+47 47  2018-01-01    29  7:20:00 AM Monday
+48 48  2018-01-01    29  7:21:00 AM Monday
+49 49  2018-01-01    90  7:38:00 AM Monday
+50 50  2018-01-01   300  7:40:00 AM Monday
+51 51  2018-01-01   100  7:54:00 AM Monday
+52 52  2018-01-01    23  7:55:00 AM Monday
+53 53  2018-01-01    37  7:56:00 AM Monday
+54 54  2018-01-01    36  7:57:00 AM Monday
+55 55  2018-01-01     9  8:00:00 AM Monday
+                                         Location    City Province
+1                                      Wilson Stn Toronto  Ontario
+2  Brimorton Dr At Orton Park Rd West Side Garage Toronto  Ontario
+3                              Davisville Station Toronto  Ontario
+4                      Kennedy Stationedy Station Toronto  Ontario
+5                                    Pape Station Toronto  Ontario
+6                                   Sheppard West Toronto  Ontario
+7                                   Sheppard West Toronto  Ontario
+8                              Davisville Station Toronto  Ontario
+9                           Transit rd and Wilson Toronto  Ontario
+10                          Eglinton and Bathurst Toronto  Ontario
+11                                  Princess Gate Toronto  Ontario
+12                         Neilson Rd and 401 HWY Toronto  Ontario
+13                            Bayview and Pottery Toronto  Ontario
+14                                     Finch East Toronto  Ontario
+15                                     Wilson Stn Toronto  Ontario
+16                         Bayview and Pottery Rd Toronto  Ontario
+17                          Victoria Park Station Toronto  Ontario
+18                                      Finch stn Toronto  Ontario
+19                         Martin Grove and Dixon Toronto  Ontario
+20                          Millwood and Southvle Toronto  Ontario
+21                                Saint Lawerence Toronto  Ontario
+22                     Kennedy Stationedy Station Toronto  Ontario
+23                    Kennedy Stationedy Station  Toronto  Ontario
+24                                Jane and Weston Toronto  Ontario
+25                     Kennedy Stationedy Station Toronto  Ontario
+26                             Lawrence and Yonge Toronto  Ontario
+27                     Mossom Rd and Bloor Street Toronto  Ontario
+28                                   Queens Quay  Toronto  Ontario
+29                     Kennedy Stationedy Station Toronto  Ontario
+30                                   Queens Quay  Toronto  Ontario
+31                                   Bingham Loop Toronto  Ontario
+32                            Yonge and Alexander Toronto  Ontario
+33                         Neilson Rd and 401 HWY Toronto  Ontario
+34                                   Fresh Meadow Toronto  Ontario
+35                              Neilson - Hwy 401 Toronto  Ontario
+36                                   Eglinton Stn Toronto  Ontario
+37                            Bathurst and Wilson Toronto  Ontario
+38                              Neilson - Hwy 401 Toronto  Ontario
+39                            Finch and Driftwood Toronto  Ontario
+40                      Rogers Road and Weston Rd Toronto  Ontario
+41                      On Bergamot, at Islington Toronto  Ontario
+42                     Danforth Ave - Danforth Rd Toronto  Ontario
+43                            King and Weston Rd. Toronto  Ontario
+44                             Lawrence West Stn. Toronto  Ontario
+45                        Scarborough town centre Toronto  Ontario
+46                           Dufferin and College Toronto  Ontario
+47                           Dufferin and College Toronto  Ontario
+48            Dufferin between college and dundas Toronto  Ontario
+49                             Oakwood and Vaughn Toronto  Ontario
+50                            Bloor - Dundas West Toronto  Ontario
+51                          Don Mills and Wynford Toronto  Ontario
+52                                 Dawes Rd route Toronto  Ontario
+53                                    Humber Loop Toronto  Ontario
+54                           Finch and Humberwood Toronto  Ontario
+55                                 Warden Station Toronto  Ontario
+                                                         Addresss
+1                                      Wilson Stn,Toronto,Ontario
+2  Brimorton Dr At Orton Park Rd West Side Garage,Toronto,Ontario
+3                              Davisville Station,Toronto,Ontario
+4                      Kennedy Stationedy Station,Toronto,Ontario
+5                                    Pape Station,Toronto,Ontario
+6                                   Sheppard West,Toronto,Ontario
+7                                   Sheppard West,Toronto,Ontario
+8                              Davisville Station,Toronto,Ontario
+9                           Transit rd and Wilson,Toronto,Ontario
+10                          Eglinton and Bathurst,Toronto,Ontario
+11                                  Princess Gate,Toronto,Ontario
+12                         Neilson Rd and 401 HWY,Toronto,Ontario
+13                            Bayview and Pottery,Toronto,Ontario
+14                                     Finch East,Toronto,Ontario
+15                                     Wilson Stn,Toronto,Ontario
+16                         Bayview and Pottery Rd,Toronto,Ontario
+17                          Victoria Park Station,Toronto,Ontario
+18                                      Finch stn,Toronto,Ontario
+19                         Martin Grove and Dixon,Toronto,Ontario
+20                          Millwood and Southvle,Toronto,Ontario
+21                                Saint Lawerence,Toronto,Ontario
+22                     Kennedy Stationedy Station,Toronto,Ontario
+23                    Kennedy Stationedy Station ,Toronto,Ontario
+24                                Jane and Weston,Toronto,Ontario
+25                     Kennedy Stationedy Station,Toronto,Ontario
+26                             Lawrence and Yonge,Toronto,Ontario
+27                     Mossom Rd and Bloor Street,Toronto,Ontario
+28                                   Queens Quay ,Toronto,Ontario
+29                     Kennedy Stationedy Station,Toronto,Ontario
+30                                   Queens Quay ,Toronto,Ontario
+31                                   Bingham Loop,Toronto,Ontario
+32                            Yonge and Alexander,Toronto,Ontario
+33                         Neilson Rd and 401 HWY,Toronto,Ontario
+34                                   Fresh Meadow,Toronto,Ontario
+35                              Neilson - Hwy 401,Toronto,Ontario
+36                                   Eglinton Stn,Toronto,Ontario
+37                            Bathurst and Wilson,Toronto,Ontario
+38                              Neilson - Hwy 401,Toronto,Ontario
+39                            Finch and Driftwood,Toronto,Ontario
+40                      Rogers Road and Weston Rd,Toronto,Ontario
+41                      On Bergamot, at Islington,Toronto,Ontario
+42                     Danforth Ave - Danforth Rd,Toronto,Ontario
+43                            King and Weston Rd.,Toronto,Ontario
+44                             Lawrence West Stn.,Toronto,Ontario
+45                        Scarborough town centre,Toronto,Ontario
+46                           Dufferin and College,Toronto,Ontario
+47                           Dufferin and College,Toronto,Ontario
+48            Dufferin between college and dundas,Toronto,Ontario
+49                             Oakwood and Vaughn,Toronto,Ontario
+50                            Bloor - Dundas West,Toronto,Ontario
+51                          Don Mills and Wynford,Toronto,Ontario
+52                                 Dawes Rd route,Toronto,Ontario
+53                                    Humber Loop,Toronto,Ontario
+54                           Finch and Humberwood,Toronto,Ontario
+55                                 Warden Station,Toronto,Ontario
+              Incident Min.Delay Min.Gap Direction Vehicle Ward       lon      lat
+1           Mechanical        10      20       W/B    1291   NA -79.45094 43.73469
+2   Utilized Off Route         1       1       S/B    8123   NA -79.20899 43.77134
+3        Investigation        30      60       S/B    8306   NA -79.39665 43.69784
+4           Mechanical        22      44       S/B    7777   NA -79.26268 43.73296
+5           Mechanical        18      36              7787   NA -79.34462 43.68009
+6           Mechanical        10      20       W/B    8453   NA -79.48265 43.74747
+7           Mechanical        10      20       E/B    8597   NA -79.48265 43.74747
+8   Utilized Off Route        30      60       N/B    8202   NA -79.39665 43.69784
+9        Investigation        10      20       E/B    1318   NA -79.45279 43.73343
+10          Mechanical        15      30       W/B    1405   NA -79.42553 43.70100
+11          Mechanical        19      18       E/B    7750   NA -79.40953 43.63468
+12           Diversion       197     210       S/B      NA   NA -79.21476 43.79253
+13  Emergency Services        15      30     76647    8202   NA -79.36979 43.69613
+14          Mechanical        10      20       W/B    1768   NA -79.31641 43.79662
+15          Mechanical        30      60       S/B    8529   NA -79.45094 43.73469
+16           Diversion         0       0       S/B    8306   NA -79.36979 43.69613
+17          Mechanical        10      20       S/B    7878   NA -79.28896 43.69429
+18          Mechanical        26      52       E/B    1826   NA -79.41547 43.78015
+19          Mechanical        25      48       E/B    1057   NA -79.57084 43.69168
+20          Mechanical        20      40       S/B    1675   NA -79.36154 43.70249
+21          Mechanical        15      30       S/B    8578   NA -79.36789 43.65039
+22          Mechanical        30      60       E/B    8104   NA -79.26268 43.73296
+23       General Delay        15      45       B/W      NA   NA -79.26268 43.73296
+24          Mechanical        10      20       S/B    1009   NA -79.50096 43.69132
+25 Late Leaving Garage        20      40       E/B    8071   NA -79.26268 43.73296
+26          Mechanical        15      38       S/B    8325   NA -79.40146 43.72802
+27          Mechanical        35      65       E/B    8627   NA -79.48573 43.64834
+28  Utilized Off Route         8      15       N/B    8802   NA -79.38782 43.63866
+29 Late Leaving Garage        33      60       W/B    8071   NA -79.26268 43.73296
+30  Utilized Off Route         8      15       N/B    8842   NA -79.38782 43.63866
+31 Late Leaving Garage        30      30       N/B    8128   NA -79.28474 43.68153
+32       Investigation        15      20       N/B    8895   NA -79.38372 43.66290
+33           Diversion       148     178       E/B      NA   NA -79.21476 43.79253
+34 Late Leaving Garage        30      60       E/B      NA   NA -79.35457 43.81037
+35           Diversion        30      60       B/W      NA   NA -79.21476 43.79253
+36 Late Leaving Garage        30      30              8374   NA -79.39898 43.70497
+37 Late Leaving Garage        30      60              8373   NA -79.43393 43.73732
+38           Diversion        30      60       B/W      NA   NA -79.21476 43.79253
+39  Emergency Services        30      60       W/B    8438   NA -79.51340 43.75807
+40          Mechanical        11      23       S/B    1547   NA -79.47672 43.68166
+41          Mechanical        24      50       E/B    8036   NA -79.55592 43.71698
+42          Mechanical         9      17       W/B    8009   NA -79.27724 43.69366
+43  Emergency Services        10      20       N/B    1615   NA -79.52067 43.70138
+44 Late Leaving Garage        10      10       W/B    1564   NA -79.44439 43.71623
+45 Late Leaving Garage        24      24       S/B    8187   NA -79.23175 43.77643
+46       Investigation         8      17       S/B    8215   NA -79.43255 43.65255
+47       Investigation         8      17       S/B    8378   NA -79.43255 43.65255
+48           Diversion         8      72       B/W    8353   NA -79.44104 43.65025
+49          Mechanical        30      30              8377   NA -79.44079 43.69259
+50  Emergency Services        14      25       E/B    8146   NA -79.53216 43.64261
+51          Mechanical        10      20       S/B    7675   NA -79.33949 43.72301
+52           Diversion       106       1       B/W    7789   NA -79.29707 43.69795
+53          Mechanical        15      31       S/B    7926   NA -79.47851 43.63119
+54          Mechanical        10      20       E/B    1284   NA -79.61688 43.73358
+55          Mechanical        24      24       E/B    8187   NA -79.28005 43.71102
+                                                                         geoAddress
+1                                           wilson station, toronto, on m3k, canada
+2                        brimorton dr at orton park rd, toronto, on m1g 3g8, canada
+3                                   davisville station, toronto, on m4s 1z2, canada
+4          kennedy go station, 2467 eglinton ave e, scarborough, on m1k 2r1, canada
+5                                         pape station, toronto, on m4j 1r1, canada
+6                                               sheppard ave w, toronto, on, canada
+7                                               sheppard ave w, toronto, on, canada
+8                                   davisville station, toronto, on m4s 1z2, canada
+9                                  transit rd & wilson ave, toronto, on m3k, canada
+10                            bathurst st & eglinton ave w, toronto, on m5n, canada
+11                                    11 princes' blvd, toronto, on m6k 3c3, canada
+12                           neilson rd at highway 401, toronto, on m1e 4n6, canada
+13                                bayview ave & pottery rd, toronto, on m4g, canada
+14                                                 finch ave e, toronto, on, canada
+15                                          wilson station, toronto, on m3k, canada
+16                                bayview ave & pottery rd, toronto, on m4g, canada
+17                               victoria park station, toronto, on m1l 4p2, canada
+18                     finch station, 5600 yonge st, north york, on m2n 5s2, canada
+19                              martin grove rd & dixon rd, toronto, on m9w, canada
+20                              millwood rd & southvale dr, toronto, on m4g, canada
+21                                                st. lawrence, toronto, on, canada
+22         kennedy go station, 2467 eglinton ave e, scarborough, on m1k 2r1, canada
+23         kennedy go station, 2467 eglinton ave e, scarborough, on m1k 2r1, canada
+24                                 weston rd & jane st, toronto, on m6m 4s2, canada
+25         kennedy go station, 2467 eglinton ave e, scarborough, on m1k 2r1, canada
+26                                          yonge and lawrence, toronto, on, canada
+27                                  mossom rd & bloor st w, toronto, on m6s, canada
+28                                               queens quay w, toronto, on, canada
+29         kennedy go station, 2467 eglinton ave e, scarborough, on m1k 2r1, canada
+30                                               queens quay w, toronto, on, canada
+31                                        bingham loop, toronto, on m4e 3t2, canada
+32                             yonge st & alexander st, toronto, on m4y 1b4, canada
+33                           neilson rd at highway 401, toronto, on m1e 4n6, canada
+34                                          freshmeadow dr, toronto, on m2h, canada
+35                           neilson rd at highway 401, toronto, on m1e 4n6, canada
+36                                            eglinton station, toronto, on, canada
+37                                bathurst st & wilson ave, toronto, on m3h, canada
+38                           neilson rd at highway 401, toronto, on m1e 4n6, canada
+39                         driftwood ave & finch ave w, toronto, on m3n 1m8, canada
+40                                   weston rd & rogers rd, toronto, on m6m, canada
+41                            islington ave & bergamot ave, toronto, on m9w, canada
+42                          danforth ave & danforth rd, toronto, on m1l 1e2, canada
+43                                 weston rd & king st, toronto, on m9n 1k9, canada
+44                                   lawrence west station, toronto, on m6a, canada
+45                                                 scarborough, toronto, on, canada
+46                            dufferin st & college st, toronto, on m6h 1b4, canada
+47                            dufferin st & college st, toronto, on m6h 1b4, canada
+48                                college st & dundas st w, toronto, on m6k, canada
+49                                             oakwood-vaughan, toronto, on, canada
+50                                bloor st w & dundas st w, toronto, on m9a, canada
+51                               don mills rd & wynford dr, toronto, on m3c, canada
+52                                                    dawes rd, toronto, on, canada
+53                            humber loop at the queensway, toronto, on m8y, canada
+54 finch - humberline sportsfields, 95 humberline dr, etobicoke, on m9w 6t3, canada
+55                                      warden station, toronto, on m1l 3z5, canada
+ [ reached 'max' / getOption("max.print") -- omitted 63999 rows ]
+> cords<-TTCBus[c("lon","lat")]
+> cords<-cords[complete.cases(cords),]
+> sp<-SpatialPoints(cords)
+> plot(Toronto)
+> plot(sp,col="red",add=TRUE)
+> Toronto<-readOGR(dsn = "TorontoWards", layer = "WARD_WGS84")
+OGR data source with driver: ESRI Shapefile 
+Source: "C:\Users\hamza\OneDrive\Documents\Capstone Project\Cap Project\TorontoWards", layer: "WARD_WGS84"
+with 25 features
+It has 9 fields
+Integer64 fields read as strings:  AREA_ID 
+> plot(Toronto)
+> plot(sp,col="red",add=TRUE)
+> plot(Toronto)
+> plot(sp,col="red",add=TRUE)
+> install.packages("geosphere")
+WARNING: Rtools is required to build R packages but is not currently installed. Please download and install the appropriate version of Rtools before proceeding:
+
+https://cran.rstudio.com/bin/windows/Rtools/
+Installing package into ‘C:/Users/hamza/OneDrive/Documents/R/win-library/3.5’
+(as ‘lib’ is unspecified)
+trying URL 'https://cran.rstudio.com/bin/windows/contrib/3.5/geosphere_1.5-10.zip'
+Content type 'application/zip' length 995040 bytes (971 KB)
+downloaded 971 KB
+
+package ‘geosphere’ successfully unpacked and MD5 sums checked
+
+The downloaded binary packages are in
+	C:\Users\hamza\AppData\Local\Temp\RtmpIXIe0I\downloaded_packages
+> library(geosphere)
+Warning message:
+package ‘geosphere’ was built under R version 3.5.3 
+> View(cords)
+> Wards <- read.csv(fileToLoad, stringsAsFactors = FALSE)
+> 
+> fileToLoad2 <- file.choose(new = TRUE)
+> Wards <- read.csv(fileToLoad2, stringsAsFactors = FALSE)
+> 
+> View(Wards)
+> mat<-distm(cords[,c('lon','lat')], Wards[,c('lon','lat')], fun = distVincentyEllipsoid)
+Error in `[.data.frame`(Wards, , c("lon", "lat")) : 
+  undefined columns selected
+> View(Wards)
+> mat<-distm(cords[,c('lon','lat')], Wards[,c('LONGITUDE','LATITUDE')], fun = distVincentyEllipsoid)
+View(cords)
+> Wards <- read.csv(fileToLoad, stringsAsFactors = FALSE)
+> 
+> fileToLoad2 <- file.choose(new = TRUE)
+> Wards <- read.csv(fileToLoad2, stringsAsFactors = FALSE)
+> 
+> View(Wards)
+> mat<-distm(cords[,c('lon','lat')], Wards[,c('lon','lat')], fun = distVincentyEllipsoid)
+Error in `[.data.frame`(Wards, , c("lon", "lat")) : 
+  undefined columns selected
+> View(Wards)
+> mat<-distm(cords[,c('lon','lat')], Wards[,c('LONGITUDE','LATITUDE')], fun = distVincentyEllipsoid)
+> View(mat)
+> View(Wards)
+> cords$ward<-Wards$AREA_L_CD[max.col(-mat)]
+> View(cords)
+> View(TTCBus)
+> TorontoCombined<-rbind(TTCBus,cords)
+Error in rbind(deparse.level, ...) : 
+  numbers of columns of arguments do not match
+> TorontoCombined<-merge(TTCBus,cords)
+
+> view
+Error: object 'view' not found
+> ..]
+Error: unexpected ']' in "..]"
+> View(Wards)
+> View(Wards)
+> write.csv(cords,"wardcords",row.names = FALSE)
+> write.csv(cords,"wardcords.csv",row.names = FALSE)
+> Torontocombine<-full_join(TTCBus,cords)
+Error in full_join(TTCBus, cords) : could not find function "full_join"
+> library(dplyr)
+
+Attaching package: ‘dplyr’
+
+The following objects are masked from ‘package:stats’:
+
+    filter, lag
+
+The following objects are masked from ‘package:base’:
+
+    intersect, setdiff, setequal, union
+
+Warning message:
+package ‘dplyr’ was built under R version 3.5.3 
+> Torontocombine<-full_join(TTCBus,cords)
+Joining, by = c("lon", "lat")
+> view(Torontocombine)
+Error in view(Torontocombine) : could not find function "view"
+> View(Torontocombine)
+Error in View : cannot allocate vector of size 117.4 Mb
+> View(Torontocombine)
+Error in View : cannot allocate vector of size 117.4 Mb
+> View(Torontocombine)
+Error in View : cannot allocate vector of size 117.4 Mb
+> write.csv(Torontocombine,"combineddata.csv",row.names = FALSE)
+
+> Master <- file.choose(new = TRUE)
+> Masterdata <- read.csv(Master, stringsAsFactors = FALSE)
+Warning messages:
+1: In read.table(file = file, header = header, sep = sep, quote = quote,  :
+  line 1 appears to contain embedded nulls
+2: In read.table(file = file, header = header, sep = sep, quote = quote,  :
+  line 4 appears to contain embedded nulls
+3: In read.table(file = file, header = header, sep = sep, quote = quote,  :
+  incomplete final line found by readTableHeader on 'C:\Users\hamza\OneDrive\Documents\Capstone Project\Cap Project\Masterdata.csv'
+> 
+> view(Masterdata)
+Error in view(Masterdata) : could not find function "view"
+> View(Masterdata)
+> Master <- file.choose(new = TRUE)
+> Masterdata <- read.csv(Master, stringsAsFactors = FALSE)
+> 
+> Wardhist<-Masterdata$ward
+> hist(Wardhist)
+> hist(Wardhist,xaxt="n")
+> hist(Wardhist,breaks=bins)
+Error in hist.default(Wardhist, breaks = bins) : object 'bins' not found
+> hist(Wardhist,breaks=seq(1,25, by=1))
+> Dayhist<-Masterdata$Day
+> hist(Dayhist)
+Error in hist.default(Dayhist) : 'x' must be numeric
+> hist(Dayhist, breaks, ...,
++      xlab = deparse(substitute(Dayhist)),
++      plot = TRUE, freq = FALSE,
++      start.on.monday = TRUE, format, right = TRUE)
+Error: '...' used in an incorrect context
+> barplot(table(weekdays(Dayhist)))
+Error in UseMethod("weekdays") : 
+  no applicable method for 'weekdays' applied to an object of class "character"
+> barplot(table(factor(weekdays(Dayhist),levels=c("Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"))))
+Error in UseMethod("weekdays") : 
+  no applicable method for 'weekdays' applied to an object of class "character"
+> barplot(table(factor(weekdays(Dayhist),levels=c("Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"))))
+Error in UseMethod("weekdays") : 
+  no applicable method for 'weekdays' applied to an object of class "character"
+> barplot(table(factor(weekdays(Dayhist,levels=c("Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"))))
++ )
+Error in weekdays(Dayhist, levels = c("Sunday", "Monday", "Tuesday", "Wednesday",  : 
+  unused argument (levels = c("Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"))
+> barplot(table(factor(weekdays(Dayhist),levels=c("Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"))))
+Error in UseMethod("weekdays") : 
+  no applicable method for 'weekdays' applied to an object of class "character"
+> barplot(Dayhist)
+Error in -0.01 * height : non-numeric argument to binary operator
+> barplot(Dayhist,
++         main = "Maximum Temperatures in a Week",
++         xlab = "Degree Celsius",
++         ylab = "Day",
++         names.arg = c("Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"),
++         col = "darkred",
++         horiz = TRUE)
+Error in -0.01 * height : non-numeric argument to binary operator
+> table(Dayhist)
+Dayhist
+   Friday    Monday  Saturday    Sunday  Thursday   Tuesday Wednesday 
+    10462      9951      6880      5786     10064     10425     10486 
+> barplot(table(Dayhist))
+> barplot(table(Dayhist, names.arg = c("Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"),))
+Error in table(Dayhist, names.arg = c("Sun", "Mon", "Tue", "Wed", "Thu",  : 
+  argument is missing, with no default
+> barplot(table(Dayhist), names.arg = c("Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"),)
+> barplot(table(Dayhist))
+> barplot(table(Dayhist), main = "Delay by Days of the Week", xlab = "Day", ylab = "Count")
+> barplot(table(Dayhist), main = "Delay by Days of the Week", xlab = "Day", ylab = "Count", names.arg = c("Friday", "Monday", "Saturday", "Sunday", "Thursday", "Tuesday", "Wednesday"),)
