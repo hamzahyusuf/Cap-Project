@@ -1,0 +1,334 @@
+=== Run information ===
+
+Scheme:       weka.classifiers.functions.Logistic -R 1.0E-8 -M -1 -num-decimal-places 4
+Relation:     Masterdatav1.1-weka.filters.unsupervised.attribute.Remove-R1-4,6-11,13,15-19
+Instances:    63736
+Attributes:   10
+              Day
+              Min.Gap
+              Delaytype
+              wardname
+              Wardpopulationrank
+              wardmedianage
+              wardunemployment
+              wardincome
+              Meantemp
+              Totalprecip
+Test mode:    evaluate on training data
+
+=== Classifier model (full training set) ===
+
+Logistic Regression with ridge parameter of 1.0E-8
+Coefficients...
+                                            Class
+Variable                              Short Delay
+=================================================
+Day=Monday                                 0.0961
+Day=Tuesday                                0.0495
+Day=Wednesday                              0.0613
+Day=Thursday                              -0.0182
+Day=Friday                                 0.0565
+Day=Saturday                              -0.2126
+Day=Sunday                                -0.1539
+Min.Gap                                   -0.1815
+wardname=Eglinton-Lawrence                  0.013
+wardname=Scarborough-Guildwood            -0.0151
+wardname=Toronto-St. Paul’s               -0.0117
+wardname=Scarborough Southwest            -0.0208
+wardname=Toronto-Danforth                 -0.0807
+wardname=York Centre                       0.0122
+wardname=Spadina-Fort York                -0.0592
+wardname=University-Rosedale              -0.0096
+wardname=Scarborough-Agincourt              0.077
+wardname=Beaches-East York                -0.0018
+wardname=Willowdale                        0.0547
+wardname=Etobicoke North                   0.0178
+wardname=Don Valley West                  -0.0266
+wardname=Toronto Centre                   -0.0524
+wardname=York South-Weston                 0.0909
+wardname=Parkdale-High Park                0.0207
+wardname=Don Valley North                 -0.0246
+wardname=Humber River-Black Creek          0.0494
+wardname=Davenport                         0.0204
+wardname=Etobicoke-Lakeshore              -0.0054
+wardname=Don Valley East                  -0.0872
+wardname=Scarborough North                 0.0027
+wardname=Scarborough Centre                0.0531
+wardname=Scarborough-Rouge Park            0.0026
+wardname=Etobicoke Centre                 -0.0009
+Wardpopulationrank=1                      -0.0054
+Wardpopulationrank=2                       0.0547
+Wardpopulationrank=3                       0.0178
+Wardpopulationrank=4                      -0.0009
+Wardpopulationrank=5                       0.0909
+Wardpopulationrank=6                      -0.0592
+Wardpopulationrank=7                        0.013
+Wardpopulationrank=8                       0.0531
+Wardpopulationrank=9                      -0.0208
+Wardpopulationrank=10                     -0.0246
+Wardpopulationrank=11                     -0.0018
+Wardpopulationrank=12                      0.0207
+Wardpopulationrank=13                      0.0204
+Wardpopulationrank=14                      0.0494
+Wardpopulationrank=15                     -0.0117
+Wardpopulationrank=16                     -0.0807
+Wardpopulationrank=17                       0.077
+Wardpopulationrank=18                      0.0122
+Wardpopulationrank=19                     -0.0096
+Wardpopulationrank=20                     -0.0524
+Wardpopulationrank=21                     -0.0266
+Wardpopulationrank=22                     -0.0151
+Wardpopulationrank=23                      0.0026
+Wardpopulationrank=24                      0.0027
+Wardpopulationrank=25                     -0.0872
+wardmedianage=1                           -0.0009
+wardmedianage=2                             0.077
+wardmedianage=3                            0.0027
+wardmedianage=4                           -0.0054
+wardmedianage=5                           -0.0246
+wardmedianage=6                            0.0026
+wardmedianage=7                           -0.0872
+wardmedianage=8                            0.0122
+wardmedianage=9                           -0.0208
+wardmedianage=10                          -0.0018
+wardmedianage=11                          -0.0117
+wardmedianage=12                            0.013
+wardmedianage=13                          -0.0266
+wardmedianage=14                           0.0531
+wardmedianage=15                          -0.0807
+wardmedianage=16                           0.0909
+wardmedianage=17                           0.0547
+wardmedianage=18                           0.0207
+wardmedianage=19                          -0.0151
+wardmedianage=20                           0.0204
+wardmedianage=21                           0.0178
+wardmedianage=22                           0.0494
+wardmedianage=23                          -0.0096
+wardmedianage=24                          -0.0524
+wardmedianage=25                          -0.0592
+wardunemployment=1                        -0.0151
+wardunemployment=2                         0.0494
+wardunemployment=3                         0.0178
+wardunemployment=4                          0.077
+wardunemployment=5                         0.0027
+wardunemployment=6                        -0.0208
+wardunemployment=7                         0.0531
+wardunemployment=8                         0.0909
+wardunemployment=9                        -0.0872
+wardunemployment=10                       -0.0246
+wardunemployment=11                        0.0026
+wardunemployment=12                       -0.0524
+wardunemployment=13                        0.0547
+wardunemployment=14                       -0.0018
+wardunemployment=15                       -0.0266
+wardunemployment=16                        0.0122
+wardunemployment=17                         0.013
+wardunemployment=18                       -0.0096
+wardunemployment=19                       -0.0009
+wardunemployment=20                        0.0204
+wardunemployment=21                       -0.0054
+wardunemployment=22                       -0.0807
+wardunemployment=23                        0.0207
+wardunemployment=24                       -0.0117
+wardunemployment=25                       -0.0592
+wardincome=1                              -0.0592
+wardincome=2                              -0.0054
+wardincome=3                              -0.0524
+wardincome=4                              -0.0117
+wardincome=5                              -0.0096
+wardincome=6                               0.0207
+wardincome=7                               0.0547
+wardincome=8                              -0.0807
+wardincome=9                              -0.0018
+wardincome=10                              0.0204
+wardincome=11                             -0.0009
+wardincome=12                              0.0909
+wardincome=13                               0.013
+wardincome=14                             -0.0246
+wardincome=15                             -0.0208
+wardincome=16                              0.0531
+wardincome=17                              0.0122
+wardincome=18                             -0.0266
+wardincome=19                             -0.0872
+wardincome=20                              0.0178
+wardincome=21                               0.077
+wardincome=22                              0.0494
+wardincome=23                             -0.0151
+wardincome=24                              0.0026
+wardincome=25                              0.0027
+Meantemp                                  -0.0049
+Totalprecip                               -0.0017
+Intercept                                  5.4537
+
+
+Odds Ratios...
+                                            Class
+Variable                              Short Delay
+=================================================
+Day=Monday                                 1.1009
+Day=Tuesday                                1.0507
+Day=Wednesday                              1.0632
+Day=Thursday                                0.982
+Day=Friday                                 1.0581
+Day=Saturday                               0.8085
+Day=Sunday                                 0.8573
+Min.Gap                                     0.834
+wardname=Eglinton-Lawrence                 1.0131
+wardname=Scarborough-Guildwood              0.985
+wardname=Toronto-St. Paul’s                0.9884
+wardname=Scarborough Southwest             0.9794
+wardname=Toronto-Danforth                  0.9225
+wardname=York Centre                       1.0123
+wardname=Spadina-Fort York                 0.9425
+wardname=University-Rosedale               0.9904
+wardname=Scarborough-Agincourt             1.0801
+wardname=Beaches-East York                 0.9982
+wardname=Willowdale                        1.0562
+wardname=Etobicoke North                    1.018
+wardname=Don Valley West                   0.9737
+wardname=Toronto Centre                    0.9489
+wardname=York South-Weston                 1.0952
+wardname=Parkdale-High Park                1.0209
+wardname=Don Valley North                  0.9757
+wardname=Humber River-Black Creek          1.0506
+wardname=Davenport                         1.0206
+wardname=Etobicoke-Lakeshore               0.9946
+wardname=Don Valley East                   0.9165
+wardname=Scarborough North                 1.0027
+wardname=Scarborough Centre                1.0545
+wardname=Scarborough-Rouge Park            1.0026
+wardname=Etobicoke Centre                  0.9991
+Wardpopulationrank=1                       0.9946
+Wardpopulationrank=2                       1.0562
+Wardpopulationrank=3                        1.018
+Wardpopulationrank=4                       0.9991
+Wardpopulationrank=5                       1.0952
+Wardpopulationrank=6                       0.9425
+Wardpopulationrank=7                       1.0131
+Wardpopulationrank=8                       1.0545
+Wardpopulationrank=9                       0.9794
+Wardpopulationrank=10                      0.9757
+Wardpopulationrank=11                      0.9982
+Wardpopulationrank=12                      1.0209
+Wardpopulationrank=13                      1.0206
+Wardpopulationrank=14                      1.0506
+Wardpopulationrank=15                      0.9884
+Wardpopulationrank=16                      0.9225
+Wardpopulationrank=17                      1.0801
+Wardpopulationrank=18                      1.0123
+Wardpopulationrank=19                      0.9904
+Wardpopulationrank=20                      0.9489
+Wardpopulationrank=21                      0.9737
+Wardpopulationrank=22                       0.985
+Wardpopulationrank=23                      1.0026
+Wardpopulationrank=24                      1.0027
+Wardpopulationrank=25                      0.9165
+wardmedianage=1                            0.9991
+wardmedianage=2                            1.0801
+wardmedianage=3                            1.0027
+wardmedianage=4                            0.9946
+wardmedianage=5                            0.9757
+wardmedianage=6                            1.0026
+wardmedianage=7                            0.9165
+wardmedianage=8                            1.0123
+wardmedianage=9                            0.9794
+wardmedianage=10                           0.9982
+wardmedianage=11                           0.9884
+wardmedianage=12                           1.0131
+wardmedianage=13                           0.9737
+wardmedianage=14                           1.0545
+wardmedianage=15                           0.9225
+wardmedianage=16                           1.0952
+wardmedianage=17                           1.0562
+wardmedianage=18                           1.0209
+wardmedianage=19                            0.985
+wardmedianage=20                           1.0206
+wardmedianage=21                            1.018
+wardmedianage=22                           1.0506
+wardmedianage=23                           0.9904
+wardmedianage=24                           0.9489
+wardmedianage=25                           0.9425
+wardunemployment=1                          0.985
+wardunemployment=2                         1.0506
+wardunemployment=3                          1.018
+wardunemployment=4                         1.0801
+wardunemployment=5                         1.0027
+wardunemployment=6                         0.9794
+wardunemployment=7                         1.0545
+wardunemployment=8                         1.0952
+wardunemployment=9                         0.9165
+wardunemployment=10                        0.9757
+wardunemployment=11                        1.0026
+wardunemployment=12                        0.9489
+wardunemployment=13                        1.0562
+wardunemployment=14                        0.9982
+wardunemployment=15                        0.9737
+wardunemployment=16                        1.0123
+wardunemployment=17                        1.0131
+wardunemployment=18                        0.9904
+wardunemployment=19                        0.9991
+wardunemployment=20                        1.0206
+wardunemployment=21                        0.9946
+wardunemployment=22                        0.9225
+wardunemployment=23                        1.0209
+wardunemployment=24                        0.9884
+wardunemployment=25                        0.9425
+wardincome=1                               0.9425
+wardincome=2                               0.9946
+wardincome=3                               0.9489
+wardincome=4                               0.9884
+wardincome=5                               0.9904
+wardincome=6                               1.0209
+wardincome=7                               1.0562
+wardincome=8                               0.9225
+wardincome=9                               0.9982
+wardincome=10                              1.0206
+wardincome=11                              0.9991
+wardincome=12                              1.0952
+wardincome=13                              1.0131
+wardincome=14                              0.9757
+wardincome=15                              0.9794
+wardincome=16                              1.0545
+wardincome=17                              1.0123
+wardincome=18                              0.9737
+wardincome=19                              0.9165
+wardincome=20                               1.018
+wardincome=21                              1.0801
+wardincome=22                              1.0506
+wardincome=23                               0.985
+wardincome=24                              1.0026
+wardincome=25                              1.0027
+Meantemp                                   0.9952
+Totalprecip                                0.9983
+
+
+Time taken to build model: 12.27 seconds
+
+=== Evaluation on training set ===
+
+Time taken to test model on training data: 0.19 seconds
+
+=== Summary ===
+
+Correctly Classified Instances       59353               93.1232 %
+Incorrectly Classified Instances      4383                6.8768 %
+Kappa statistic                          0.8324
+Mean absolute error                      0.1652
+Root mean squared error                  0.2609
+Relative absolute error                 38.6257 %
+Root relative squared error             56.4143 %
+Total Number of Instances            63736     
+
+=== Detailed Accuracy By Class ===
+
+                 TP Rate  FP Rate  Precision  Recall   F-Measure  MCC      ROC Area  PRC Area  Class
+                 0.983    0.185    0.922      0.983    0.952      0.838    0.941     0.942     Short Delay
+                 0.815    0.017    0.957      0.815    0.880      0.838    0.941     0.923     Long Delay
+Weighted Avg.    0.931    0.133    0.933      0.931    0.930      0.838    0.941     0.936     
+
+=== Confusion Matrix ===
+
+     a     b   <-- classified as
+ 43258   729 |     a = Short Delay
+  3654 16095 |     b = Long Delay
+

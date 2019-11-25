@@ -1,0 +1,225 @@
+=== Run information ===
+
+Scheme:       weka.classifiers.bayes.NaiveBayes 
+Relation:     Masterdatav1.1-weka.filters.unsupervised.attribute.Remove-R1-4,6-11,13,15-19
+Instances:    63736
+Attributes:   10
+              Day
+              Min.Gap
+              Delaytype
+              wardname
+              Wardpopulationrank
+              wardmedianage
+              wardunemployment
+              wardincome
+              Meantemp
+              Totalprecip
+Test mode:    evaluate on training data
+
+=== Classifier model (full training set) ===
+
+Naive Bayes Classifier
+
+                                    Class
+Attribute                     Short Delay  Long Delay
+                                   (0.69)      (0.31)
+======================================================
+Day
+  Monday                            7063.0      2836.0
+  Tuesday                           7573.0      2818.0
+  Wednesday                         7445.0      2978.0
+  Thursday                          6984.0      3029.0
+  Friday                            7371.0      3038.0
+  Saturday                          4219.0      2640.0
+  Sunday                            3339.0      2417.0
+  [total]                          43994.0     19756.0
+
+Min.Gap
+  mean                              15.706     89.8241
+  std. dev.                        14.2071    190.9498
+  weight sum                         43987       19749
+  precision                         3.2253      3.2253
+
+wardname
+  Eglinton-Lawrence                 2006.0       857.0
+  Scarborough-Guildwood             1626.0       634.0
+  Toronto-St. Paul’s                3009.0      1362.0
+  Scarborough Southwest             3144.0      1292.0
+  Toronto-Danforth                  1776.0       717.0
+  York Centre                       1880.0       755.0
+  Spadina-Fort York                 1387.0       773.0
+  University-Rosedale               1049.0       564.0
+  Scarborough-Agincourt             1055.0       366.0
+  Beaches-East York                 2686.0      1440.0
+  Willowdale                        2323.0       733.0
+  Etobicoke North                   1572.0       685.0
+  Don Valley West                   1680.0      1149.0
+  Toronto Centre                    2755.0      1339.0
+  York South-Weston                 1972.0       789.0
+  Parkdale-High Park                1555.0       662.0
+  Don Valley North                   772.0       461.0
+  Humber River-Black Creek          2159.0      1013.0
+  Davenport                         1402.0       524.0
+  Etobicoke-Lakeshore               1914.0       945.0
+  Don Valley East                   1329.0       666.0
+  Scarborough North                 1597.0       734.0
+  Scarborough Centre                2121.0       637.0
+  Scarborough-Rouge Park             815.0       371.0
+  Etobicoke Centre                   428.0       306.0
+  [total]                          44012.0     19774.0
+
+Wardpopulationrank
+  1                                 1914.0       945.0
+  2                                 2323.0       733.0
+  3                                 1572.0       685.0
+  4                                  428.0       306.0
+  5                                 1972.0       789.0
+  6                                 1387.0       773.0
+  7                                 2006.0       857.0
+  8                                 2121.0       637.0
+  9                                 3144.0      1292.0
+  10                                 772.0       461.0
+  11                                2686.0      1440.0
+  12                                1555.0       662.0
+  13                                1402.0       524.0
+  14                                2159.0      1013.0
+  15                                3009.0      1362.0
+  16                                1776.0       717.0
+  17                                1055.0       366.0
+  18                                1880.0       755.0
+  19                                1049.0       564.0
+  20                                2755.0      1339.0
+  21                                1680.0      1149.0
+  22                                1626.0       634.0
+  23                                 815.0       371.0
+  24                                1597.0       734.0
+  25                                1329.0       666.0
+  [total]                          44012.0     19774.0
+
+wardmedianage
+  1                                  428.0       306.0
+  2                                 1055.0       366.0
+  3                                 1597.0       734.0
+  4                                 1914.0       945.0
+  5                                  772.0       461.0
+  6                                  815.0       371.0
+  7                                 1329.0       666.0
+  8                                 1880.0       755.0
+  9                                 3144.0      1292.0
+  10                                2686.0      1440.0
+  11                                3009.0      1362.0
+  12                                2006.0       857.0
+  13                                1680.0      1149.0
+  14                                2121.0       637.0
+  15                                1776.0       717.0
+  16                                1972.0       789.0
+  17                                2323.0       733.0
+  18                                1555.0       662.0
+  19                                1626.0       634.0
+  20                                1402.0       524.0
+  21                                1572.0       685.0
+  22                                2159.0      1013.0
+  23                                1049.0       564.0
+  24                                2755.0      1339.0
+  25                                1387.0       773.0
+  [total]                          44012.0     19774.0
+
+wardunemployment
+  1                                 1626.0       634.0
+  2                                 2159.0      1013.0
+  3                                 1572.0       685.0
+  4                                 1055.0       366.0
+  5                                 1597.0       734.0
+  6                                 3144.0      1292.0
+  7                                 2121.0       637.0
+  8                                 1972.0       789.0
+  9                                 1329.0       666.0
+  10                                 772.0       461.0
+  11                                 815.0       371.0
+  12                                2755.0      1339.0
+  13                                2323.0       733.0
+  14                                2686.0      1440.0
+  15                                1680.0      1149.0
+  16                                1880.0       755.0
+  17                                2006.0       857.0
+  18                                1049.0       564.0
+  19                                 428.0       306.0
+  20                                1402.0       524.0
+  21                                1914.0       945.0
+  22                                1776.0       717.0
+  23                                1555.0       662.0
+  24                                3009.0      1362.0
+  25                                1387.0       773.0
+  [total]                          44012.0     19774.0
+
+wardincome
+  1                                 1387.0       773.0
+  2                                 1914.0       945.0
+  3                                 2755.0      1339.0
+  4                                 3009.0      1362.0
+  5                                 1049.0       564.0
+  6                                 1555.0       662.0
+  7                                 2323.0       733.0
+  8                                 1776.0       717.0
+  9                                 2686.0      1440.0
+  10                                1402.0       524.0
+  11                                 428.0       306.0
+  12                                1972.0       789.0
+  13                                2006.0       857.0
+  14                                 772.0       461.0
+  15                                3144.0      1292.0
+  16                                2121.0       637.0
+  17                                1880.0       755.0
+  18                                1680.0      1149.0
+  19                                1329.0       666.0
+  20                                1572.0       685.0
+  21                                1055.0       366.0
+  22                                2159.0      1013.0
+  23                                1626.0       634.0
+  24                                 815.0       371.0
+  25                                1597.0       734.0
+  [total]                          44012.0     19774.0
+
+Meantemp
+  mean                              8.8013      9.9556
+  std. dev.                        10.5938     10.5292
+  weight sum                         43987       19749
+  precision                          0.205       0.205
+
+Totalprecip
+  mean                              2.8445      3.0466
+  std. dev.                         7.4478       7.712
+  weight sum                         43987       19749
+  precision                          0.964       0.964
+
+
+
+Time taken to build model: 0.06 seconds
+
+=== Evaluation on training set ===
+
+Time taken to test model on training data: 0.19 seconds
+
+=== Summary ===
+
+Correctly Classified Instances       49322               77.3848 %
+Incorrectly Classified Instances     14414               22.6152 %
+Kappa statistic                          0.3415
+Mean absolute error                      0.241 
+Root mean squared error                  0.4306
+Relative absolute error                 56.3554 %
+Root relative squared error             93.1123 %
+Total Number of Instances            63736     
+
+=== Detailed Accuracy By Class ===
+
+                 TP Rate  FP Rate  Precision  Recall   F-Measure  MCC      ROC Area  PRC Area  Class
+                 0.997    0.722    0.754      0.997    0.859      0.447    0.813     0.884     Short Delay
+                 0.278    0.003    0.974      0.278    0.432      0.447    0.813     0.734     Long Delay
+Weighted Avg.    0.774    0.500    0.822      0.774    0.727      0.447    0.813     0.837     
+
+=== Confusion Matrix ===
+
+     a     b   <-- classified as
+ 43839   148 |     a = Short Delay
+ 14266  5483 |     b = Long Delay

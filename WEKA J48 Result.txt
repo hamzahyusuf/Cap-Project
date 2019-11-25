@@ -1,0 +1,118 @@
+=== Run information ===
+
+Scheme:       weka.classifiers.trees.J48 -C 0.25 -M 2
+Relation:     Masterdatav1.1-weka.filters.unsupervised.attribute.Remove-R1-4,6-11,13,15-19
+Instances:    63736
+Attributes:   10
+              Day
+              Min.Gap
+              Delaytype
+              wardname
+              Wardpopulationrank
+              wardmedianage
+              wardunemployment
+              wardincome
+              Meantemp
+              Totalprecip
+Test mode:    evaluate on training data
+
+=== Classifier model (full training set) ===
+
+J48 pruned tree
+------------------
+
+Min.Gap <= 28
+|   Min.Gap <= 24: Short Delay (41607.0/1762.0)
+|   Min.Gap > 24
+|   |   Min.Gap <= 25
+|   |   |   wardname = Eglinton-Lawrence : Short Delay (17.0/8.0)
+|   |   |   wardname = Scarborough-Guildwood : Long Delay (21.0/6.0)
+|   |   |   wardname = Toronto-St. Paul’s  : Long Delay (41.0/12.0)
+|   |   |   wardname = Scarborough Southwest : Long Delay (55.0/12.0)
+|   |   |   wardname = Toronto-Danforth : Long Delay (26.0/6.0)
+|   |   |   wardname = York Centre 
+|   |   |   |   Day = Monday: Long Delay (6.0/1.0)
+|   |   |   |   Day = Tuesday: Short Delay (5.0/1.0)
+|   |   |   |   Day = Wednesday: Short Delay (4.0/2.0)
+|   |   |   |   Day = Thursday: Long Delay (4.0/1.0)
+|   |   |   |   Day = Friday
+|   |   |   |   |   Meantemp <= 5.6: Long Delay (2.0)
+|   |   |   |   |   Meantemp > 5.6: Short Delay (2.0)
+|   |   |   |   Day = Saturday: Short Delay (2.0)
+|   |   |   |   Day = Sunday: Short Delay (1.0)
+|   |   |   wardname = Spadina-Fort York 
+|   |   |   |   Day = Monday: Long Delay (4.0/1.0)
+|   |   |   |   Day = Tuesday: Long Delay (2.0)
+|   |   |   |   Day = Wednesday: Short Delay (5.0/1.0)
+|   |   |   |   Day = Thursday: Long Delay (2.0)
+|   |   |   |   Day = Friday: Short Delay (2.0)
+|   |   |   |   Day = Saturday: Short Delay (2.0)
+|   |   |   |   Day = Sunday: Short Delay (2.0/1.0)
+|   |   |   wardname = University-Rosedale : Long Delay (23.0/11.0)
+|   |   |   wardname = Scarborough-Agincourt 
+|   |   |   |   Totalprecip <= 5.5: Short Delay (7.0)
+|   |   |   |   Totalprecip > 5.5: Long Delay (4.0/1.0)
+|   |   |   wardname = Beaches-East York 
+|   |   |   |   Day = Monday
+|   |   |   |   |   Meantemp <= -1.3: Short Delay (2.0)
+|   |   |   |   |   Meantemp > -1.3: Long Delay (2.0)
+|   |   |   |   Day = Tuesday: Short Delay (4.0)
+|   |   |   |   Day = Wednesday: Short Delay (5.0)
+|   |   |   |   Day = Thursday: Long Delay (6.0/1.0)
+|   |   |   |   Day = Friday: Short Delay (4.0/2.0)
+|   |   |   |   Day = Saturday: Short Delay (2.0/1.0)
+|   |   |   |   Day = Sunday: Long Delay (1.0)
+|   |   |   wardname = Willowdale : Short Delay (30.0/9.0)
+|   |   |   wardname = Etobicoke North : Long Delay (25.0/8.0)
+|   |   |   wardname = Don Valley West  : Long Delay (35.0/11.0)
+|   |   |   wardname = Toronto Centre : Long Delay (54.0/17.0)
+|   |   |   wardname = York South-Weston : Long Delay (10.0/4.0)
+|   |   |   wardname = Parkdale-High Park : Long Delay (51.0/22.0)
+|   |   |   wardname = Don Valley North : Short Delay (18.0/2.0)
+|   |   |   wardname = Humber River-Black Creek : Short Delay (21.0/7.0)
+|   |   |   wardname = Davenport : Long Delay (30.0/10.0)
+|   |   |   wardname = Etobicoke-Lakeshore : Long Delay (67.0/15.0)
+|   |   |   wardname = Don Valley East  : Long Delay (40.0/7.0)
+|   |   |   wardname = Scarborough North 
+|   |   |   |   Totalprecip <= 12.6: Short Delay (27.0/9.0)
+|   |   |   |   Totalprecip > 12.6: Long Delay (2.0)
+|   |   |   wardname = Scarborough Centre : Short Delay (44.0/5.0)
+|   |   |   wardname = Scarborough-Rouge Park  : Short Delay (38.0/7.0)
+|   |   |   wardname = Etobicoke Centre : Long Delay (14.0/4.0)
+|   |   Min.Gap > 25: Short Delay (3351.0/382.0)
+Min.Gap > 28: Long Delay (18007.0/834.0)
+
+Number of Leaves  : 	50
+
+Size of the tree : 	61
+
+
+Time taken to build model: 2.95 seconds
+
+=== Evaluation on training set ===
+
+Time taken to test model on training data: 0.09 seconds
+
+=== Summary ===
+
+Correctly Classified Instances       60553               95.006  %
+Incorrectly Classified Instances      3183                4.994  %
+Kappa statistic                          0.8812
+Mean absolute error                      0.0929
+Root mean squared error                  0.2156
+Relative absolute error                 21.7307 %
+Root relative squared error             46.6164 %
+Total Number of Instances            63736     
+
+=== Detailed Accuracy By Class ===
+
+                 TP Rate  FP Rate  Precision  Recall   F-Measure  MCC      ROC Area  PRC Area  Class
+                 0.978    0.111    0.951      0.978    0.964      0.882    0.941     0.952     Short Delay
+                 0.889    0.022    0.947      0.889    0.917      0.882    0.941     0.894     Long Delay
+Weighted Avg.    0.950    0.084    0.950      0.950    0.950      0.882    0.941     0.934     
+
+=== Confusion Matrix ===
+
+     a     b   <-- classified as
+ 43003   984 |     a = Short Delay
+  2199 17550 |     b = Long Delay
