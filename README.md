@@ -28,7 +28,8 @@ For example
 
 mydata = read.csv("Masterdatav1.1.csv")
 
-## License
+## III. License
 MIT
+
 Please feel free to use the Masterdatav1.1 csv file for own analysis. 
 
